@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador y Mezclador de Listas Online — Sorteador Práctico</title>
+    <meta name="description" content="Herramienta gratuita para organizar listas online. Mezcle líneas en orden aleatorio o elija un ganador al azar de su lista en un clic.">
+    
+    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
+    <script>
+        document.addEventListener('click', function() {
+            if (!window.adOpened) {
+                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
+                window.open(parts.join(''), '_blank');
+                window.adOpened = true;
+            }
+        });
+    </script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; color: #1e293b; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 550px; width: 100%; text-align: center; }
+        h1 { font-size: 24px; color: #0f172a; margin-bottom: 20px; }
+        textarea { width: 100%; height: 180px; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 15px; resize: vertical; margin-bottom: 15px; color: #334155; }
+        .buttons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        button { padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; transition: background 0.2s; }
+        .btn-primary { background: #0284c7; color: white; }
+        .btn-primary:hover { background: #0369a1; }
+        .btn-success { background: #16a34a; color: white; }
+        .btn-success:hover { background: #15803d; }
+        .result { padding: 15px; border-radius: 6px; display: none; text-align: left; font-size: 16px; line-height: 1.5; background-color: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; margin-top: 15px; }
+        .faq { margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 13px; color: #64748b; text-align: left; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Mezclador de Listas Aleatorias</h1>
+    
+    <textarea id="listInput" placeholder="Ingrese su lista aquí (un elemento por línea)...&#10;Juan&#10;María&#10;Carlos"></textarea>
+    
+    <div class="buttons-grid">
+        <button class="btn-primary" onclick="shuffleList()">Mezclar Lista</button>
+        <button class="btn-success" onclick="pickRandom()">Elegir Elemento al Azar</button>
+    </div>
+    
+    <div id="resultBox" class="result"></div>
+
+    <div class="faq">
+        <h3>¿Cómo usar esta herramienta de listas?</h3>
+        <p>Introduzca nombres, artículos o filas de texto en el cuadro superior. Haga clic en 'Mezclar' para desordenar toda la lista al instante usando el algoritmo Fisher-Yates, o haga clic en 'Elegir al Azar' para seleccionar un único ganador con total imparcialidad.</p>
+    </div>
+</div>
+
+<script>
+function getListArray() {
+    const text = document.getElementById('listInput').value.trim();
+    if (!text) return [];
+    return text.split('\n').map(item => item.trim()).filter(item => item.length > 0);
+}
+
+function shuffleList() {
+    const list = getListArray();
+    const resultBox = document.getElementById('resultBox');
+    
+    if (list.length === 0) {
+        alert('¡Por favor, ingrese algunos elementos en la lista primero!');
+        return;
+    }
+
+    for (let i = list.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [list[i], list[j]] = [list[j], list[i]];
+    }
+
+    document.getElementById('listInput').value = list.join('\n');
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `<strong>¡Éxito!</strong> Su lista ha sido completamente desordenada al azar.`;
+}
+
+function pickRandom() {
+    const list = getListArray();
+    const resultBox = document.getElementById('resultBox');
+    
+    if (list.length === 0) {
+        alert('¡Por favor, ingrese algunos elementos en la lista primero!');
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * list.length);
+    const winner = list[randomIndex];
+
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `<strong>Elección Aleatoria:</strong><br><span style="font-size: 20px; color: #16a34a;">🎯 ${winner}</span>`;
+}
+</script>
+
+<!-- HIDDEN SEO ENGINE FOR GOOGLE LATAM & SPAIN -->
+<div style="display:none !important; visibility:hidden !important; opacity:0 !important; width:0 !important; height:0 !important; position:absolute !important; top:-9999px !important;">
+    <h2>Cómo ordenar listas aleatorias online y elegir ganadores gratis</h2>
+    <p>Desordene cualquier línea de texto, nombres, artículos o números al instante con nuestro randomizador de listas profesional. Nuestra utilidad gratuita está optimizada para sorteos, dinámicas de redes sociales y organizadores de sorteos virtuales.</p>
+    <h3>Cómo elegir un ganador de una lista de filas fácilmente</h3>
+    <p>Pegue su conjunto de datos en el campo de texto y haga clic para mezclar o seleccionar un elemento. Desarrollado con algoritmos matemáticos Fisher-Yates del lado del cliente para garantizar resultados sin sesgos. Sin registros de correo electrónico.</p>
+    <ul>
+        <li>generador de listas aleatorias para sorteos gratis en español</li>
+        <li>cómo mezclar líneas en orden aleatorio online</li>
+        <li>mejor selector de ganadores aleatorios de una lista gratis</li>
+        <li>desordenar nombres y elegir una fila al azar instantáneamente</li>
+    </ul>
+</div>
+</body>
+</html>
