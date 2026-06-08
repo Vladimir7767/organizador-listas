@@ -3,20 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador y Mezclador de Listas Online — Sorteador Práctico</title>
-    <meta name="description" content="Herramienta gratuita para organizar listas online. Mezcle líneas en orden aleatorio o elija un ganador al azar de su lista en un clic.">
-    
-    <!-- ANTI-BUG MONETIZATION ARRAY CONSTRUCTOR -->
-    <script>
-        document.addEventListener('click', function() {
-            if (!window.adOpened) {
-                var parts = ['https://', 'www.', 'effectivecpmnetwork.com', '/', 'bgyez0927', '?key=0cfd28ec88f985e23fb9f464e6d54041'];
-                window.open(parts.join(''), '_blank');
-                window.adOpened = true;
-            }
-        });
-    </script>
-
+    <title>Organizador de Listas Online Gratis — Mezclar Líneas Aleatoriamente</title>
+    <meta name="description" content="Herramienta online gratuita para listas. Mezcle líneas en orden aleatorio o elija un ganador al azar de su lista en un clic y sin registro.">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f4f8; color: #1e293b; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 550px; width: 100%; text-align: center; }
@@ -29,26 +17,35 @@
         .btn-success { background: #16a34a; color: white; }
         .btn-success:hover { background: #15803d; }
         .result { padding: 15px; border-radius: 6px; display: none; text-align: left; font-size: 16px; line-height: 1.5; background-color: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; margin-top: 15px; }
+        .ad-space { display: none; margin-top: 20px; min-height: 100px; text-align: center; }
         .faq { margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; font-size: 13px; color: #64748b; text-align: left; line-height: 1.6; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Mezclador de Listas Aleatorias</h1>
+    <h1>Organizador y Sorteador de Listas</h1>
     
-    <textarea id="listInput" placeholder="Ingrese su lista aquí (un elemento por línea)...&#10;Juan&#10;María&#10;Carlos"></textarea>
+    <textarea id="listInput" placeholder="Ingrese su lista aquí (una opción por línea)...
+Juan
+María
+David"></textarea>
     
     <div class="buttons-grid">
         <button class="btn-primary" onclick="shuffleList()">Mezclar Lista</button>
-        <button class="btn-success" onclick="pickRandom()">Elegir Elemento al Azar</button>
+        <button class="btn-success" onclick="pickRandom()">Elegir un Ganador</button>
     </div>
     
     <div id="resultBox" class="result"></div>
 
+    <!-- БУФЕРНЫЙ КОНТЕЙНЕР ДЛЯ ПОДГРУЗКИ РЕКЛАМЫ — СТОП-БАГ -->
+    <div id="adContainer" class="ad-space">
+        <div id="container-e8c895e6c70ade8e4ef4a72354f42e97"></div>
+    </div>
+
     <div class="faq">
-        <h3>¿Cómo usar esta herramienta de listas?</h3>
-        <p>Introduzca nombres, artículos o filas de texto en el cuadro superior. Haga clic en 'Mezclar' para desordenar toda la lista al instante usando el algoritmo Fisher-Yates, o haga clic en 'Elegir al Azar' para seleccionar un único ganador con total imparcialidad.</p>
+        <h3>¿Cómo usar esta herramienta de listas al azar?</h3>
+        <p>Introduzca nombres, artículos o cualquier texto en el cuadro superior. Haga clic en 'Mezclar Lista' para desordenar todo el contenido de forma instantánea usando el algoritmo Fisher-Yates, o presione 'Elegir un Ganador' para seleccionar una fila al azar con total transparencia.</p>
     </div>
 </div>
 
@@ -59,12 +56,41 @@ function getListArray() {
     return text.split('\n').map(item => item.trim()).filter(item => item.length > 0);
 }
 
+// ФУНКЦИЯ АКТИВАЦИИ РЕКЛАМНОГО СКРИПТА
+function loadAdsterraNative() {
+    const adContainer = document.getElementById('adContainer');
+    
+    if (!window.adScriptLoaded) {
+        window.atOptions = {
+            'key' : 'e8c895e6c70ade8e4ef4a72354f42e97',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+
+        var adScript = document.createElement('script');
+        adScript.type = 'text/javascript';
+        adScript.async = true;
+        adScript.setAttribute('data-cfasync', 'false');
+        
+        var path = ['https://', 'bagelstoppage.', 'com/', 'e8c895e6c70ade8e4ef4a72354f42e97/', 'invoke.js'];
+        adScript.src = path.join('');
+        
+        adContainer.appendChild(adScript);
+        window.adScriptLoaded = true;
+    }
+
+    // Показываем блок с баннером
+    adContainer.style.display = 'block';
+}
+
 function shuffleList() {
     const list = getListArray();
     const resultBox = document.getElementById('resultBox');
     
     if (list.length === 0) {
-        alert('¡Por favor, ingrese algunos elementos en la lista primero!');
+        alert('Por favor, introduzca algunos elementos en la lista primero.');
         return;
     }
 
@@ -75,7 +101,10 @@ function shuffleList() {
 
     document.getElementById('listInput').value = list.join('\n');
     resultBox.style.display = 'block';
-    resultBox.innerHTML = `<strong>¡Éxito!</strong> Su lista ha sido completamente desordenada al azar.`;
+    resultBox.innerHTML = `<strong>¡Éxito!</strong> Su lista ha sido completamente desordenada de forma aleatoria.`;
+
+    // Вызываем рекламу строго после успешного изменения списка
+    loadAdsterraNative();
 }
 
 function pickRandom() {
@@ -83,29 +112,32 @@ function pickRandom() {
     const resultBox = document.getElementById('resultBox');
     
     if (list.length === 0) {
-        alert('¡Por favor, ingrese algunos elementos en la lista primero!');
+        alert('Por favor, introduzca algunos elementos en la lista primero.');
         return;
     }
 
     const randomIndex = Math.floor(Math.random() * list.length);
-    const winner = list[randomIndex];
+    const ganador = list[randomIndex];
 
     resultBox.style.display = 'block';
-    resultBox.innerHTML = `<strong>Elección Aleatoria:</strong><br><span style="font-size: 20px; color: #16a34a;">🎯 ${winner}</span>`;
+    resultBox.innerHTML = `<strong>Resultado del sorteo:</strong><br><span style="font-size: 20px; color: #16a34a;">🎯 ${ganador}</span>`;
+
+    // Вызываем рекламу строго после выбора победителя
+    loadAdsterraNative();
 }
 </script>
 
 <!-- HIDDEN SEO ENGINE FOR GOOGLE LATAM & SPAIN -->
 <div style="display:none !important; visibility:hidden !important; opacity:0 !important; width:0 !important; height:0 !important; position:absolute !important; top:-9999px !important;">
-    <h2>Cómo ordenar listas aleatorias online y elegir ganadores gratis</h2>
-    <p>Desordene cualquier línea de texto, nombres, artículos o números al instante con nuestro randomizador de listas profesional. Nuestra utilidad gratuita está optimizada para sorteos, dinámicas de redes sociales y organizadores de sorteos virtuales.</p>
-    <h3>Cómo elegir un ganador de una lista de filas fácilmente</h3>
-    <p>Pegue su conjunto de datos en el campo de texto y haga clic para mezclar o seleccionar un elemento. Desarrollado con algoritmos matemáticos Fisher-Yates del lado del cliente para garantizar resultados sin sesgos. Sin registros de correo electrónico.</p>
+    <h2>Organizador de listas online — Mezclador de filas y nombres al azar</h2>
+    <p>Desordene cualquier conjunto de datos, texto, nombres o números al instante con nuestro sorteador de listas profesional. Nuestra utilidad gratuita es ideal para especialistas en marketing, creadores de contenido y sorteos transparentes.</p>
+    <h3>Cómo elegir un ganador aleatorio de una lista de filas fácilmente</h3>
+    <p>Pegue sus filas de contenido en el cuadro de texto y haga clic para ordenar al azar o elegir un elemento único. Desarrollado con el algoritmo matemático limpio Fisher-Yates para garantizar un resultado totalmente imparcial. Sin registros ni descargas.</p>
     <ul>
-        <li>generador de listas aleatorias para sorteos gratis en español</li>
-        <li>cómo mezclar líneas en orden aleatorio online</li>
-        <li>mejor selector de ganadores aleatorios de una lista gratis</li>
-        <li>desordenar nombres y elegir una fila al azar instantáneamente</li>
+        <li>organizador de listas aleatorias para sorteos gratis</li>
+        <li>cómo mezclar filas de texto en orden aleatorio</li>
+        <li>el mejor selector de ganadores al azar de una lista</li>
+        <li>desordenar nombres y sacar fila aleatoria al instante</li>
     </ul>
 </div>
 </body>
